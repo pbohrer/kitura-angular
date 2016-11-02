@@ -1,7 +1,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "firstKit",
+    name: "kitura-angular",
 
 	dependencies: [
 		.Package(url: "https://github.com/IBM-Swift/HeliumLogger.git", majorVersion: 1, minor: 0),

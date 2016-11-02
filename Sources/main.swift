@@ -28,8 +28,12 @@ router.get("/timestamps") {
 router.post("/timestamps") {
     request, response, next in
 
-	let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
-	timestamps.append(timestamp)
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .long
+
+    var dateStr = formatter.string(from: Date())
+	timestamps.append(dateStr)
 
     response.status(.OK)
     next()

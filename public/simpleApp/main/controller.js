@@ -22,14 +22,15 @@ angular.module('simpleApp')
         //	Send a new timestamp request to the server
         //
         $scope.postTimestamp = function() {
-        	TimestampService.set()
-        	$scope.reloadTimestamps()
+        	//
+        	//	Set another timestamp and then reload when completed
+        	//
+        	TimestampService.set($scope.reloadTimestamps);
             return true;
         }
 
 	    $scope.clearTimestamps = function() {
-	    	TimestampService.reset()
-	    	$scope.reloadTimestamps()
+	    	TimestampService.reset($scope.reloadTimestamps)
 	        return true;
 	    }
 }]);

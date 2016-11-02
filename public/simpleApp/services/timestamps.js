@@ -2,24 +2,25 @@ angular.module('simpleApp')
 
     .service('TimestampService', ['$http', function ($http) {
 
+    	var url = '/timestamps';
+
         this.get = function(callback) {
-            var url = '/timestamps';
-            var results = $http.get(url).then(function(response) {
+            $http.get(url).then(function(response) {
             	callback(response.data)
             });
 
             return
         }
 
-        this.set = function() {
-            var url = '/timestamps';
-            console.log("sending post")
-            return $http.post(url);
+        this.set = function(callback) {
+            $http.post(url).then(function(response){
+            	callback(response.data)
+            });
         }
 
-	    this.reset = function() {
-	        var url = '/timestamps';
-	        console.log("sending delete")
-	        return $http.delete(url);
+	    this.reset = function(callback) {
+	        $http.delete(url).then(function(response){
+	        	callback(response.data)
+	        })
 	    }
 }]);
