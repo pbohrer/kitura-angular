@@ -1,0 +1,1 @@
+web: kitura-angular
