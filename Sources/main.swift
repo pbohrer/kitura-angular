@@ -33,7 +33,7 @@ router.post("/timestamps") {
     formatter.timeStyle = .long
 
     var dateStr = formatter.string(from: Date())
-	timestamps.append(dateStr)
+    timestamps.append(dateStr)
 
     response.status(.OK)
     next()
